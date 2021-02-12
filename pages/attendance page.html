@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attendance</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/attendance page.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Attendance <span class="text-success">System</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <!-- <a class="btn btn-outline-success mr-5" href="login.html">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></a> -->
+            <button class="btn btn-outline-success mr-5" id="logout">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></button>
+        </div>
+    </nav>
+    <div class="container-fluid" id="mainwrapper">
+        <div class="row" id="upperwraper">
+            <div class="col-10 col-md-8 col-lg-4 p-5" id="loginsection">
+                <p class="lead text-center"><span class="text-success"><i class="fa fa-pencil"></i></span> Register Your Attendance</p>
+                <form method="@POST" id="confirmattendance">
+                    <div class="input-group mb-3">
+                        <span class="input-group-prepend "><i class="input-group-text fa fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="username" name="username" id="username" required>
+                    </div>
+                    <label for="username" class="form-label text-danger" id="invalidusername">invalid username</label>
+                    <button type="submit" class="btn btn-primary form-control mb-3" id="confirmattendance">Confirm Attendance</button>
+                </form>
+            </div>
+            <div class="col-12 text-center" id="footer">
+                <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                    <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                    <span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/JQuery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/attendance page.js"></script>
+</body>
+
+</html>

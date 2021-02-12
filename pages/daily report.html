@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #mainwrapper {
+            height: 555px;
+            background-image: url("../images/login-bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #upperwraper {
+            height: 100%;
+            background-color: black;
+            opacity: .7;
+        }
+        
+        #loginsection {
+            margin: 80px auto;
+            background-color: white;
+            height: 320px;
+            border-radius: 20px;
+            transition: 1.5s;
+            overflow: auto;
+        }
+        /*#loginsection:hover{
+                box-shadow: 3px 3px 5px 5px rebeccapurple;
+                transform: scale(1.05);
+            }*/
+        
+        #invalidpassword,
+        #invalidusername {
+            display: none;
+        }
+        
+        #footer {
+            background-color: #0e0e0e;
+            color: white;
+            height: 50px;
+            margin-top: 25px;
+        }
+        
+        #footer p {
+            margin-top: 10px;
+        }
+        
+        #footer p a {
+            font-family: system-ui;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Attendance <span class="text-success">System</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="daily report.html">Daily Report <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="monthly report.html">Monthly Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+            </ul>
+            <label for="username" class="form-label text-light mr-5"><span><i class="fa fa-user"></i></span><span id="employeename"> employee</span></label>
+            <!-- <a class="btn btn-outline-success mr-5" href="login.html">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></a> -->
+            <button class="btn btn-outline-success mr-5" id="logout">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></button>
+        </div>
+    </nav>
+    <div class="container-fluid" id="mainwrapper">
+        <div class="row" id="upperwraper">
+            <div class="col-10 col-md-8 col-lg-6 p-5" id="loginsection">
+                <p class="lead text-center mb-4"><span class="text-success"><i class="fa fa-file"></i></span> Daily Report</p>
+                <p class="lead">
+                    <label for="username" class="form-label text-success">Employee Name : </label>
+                    <label for="username" class="form-label text-dark" id="employeenameinfo"> employee</label>
+                </p>
+                <p class="lead">
+                    <label for="attendancetime" class="form-label text-success">Attendance Time : </label>
+                    <label for="attendancetime" class="form-label text-dark" id="attendancetime">00:00 am</label>
+                </p>
+                <p class="lead">
+                    <label for="attendancetime" class="form-label text-success">Attendance Status : </label>
+                    <label for="attendancetime" class="form-label text-dark" id="attendancestatus">---</label>
+                </p>
+            </div>
+            <div class="col-12 text-center" id="footer">
+                <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                    <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                    <span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/JQuery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script>
+        // display employee first name and last name when he inter
+        document.getElementById('employeename').innerText = "  " + localStorage.getItem("employee_firstname") + " " + localStorage.getItem('employee_lastname') + " ";
+        
+        // user logout
+        document.getElementById('logout').addEventListener('click', logout);
+
+        // display employee first name and last name when he inter and after taking attendance 
+        document.getElementById('employeenameinfo').innerText = "  " + localStorage.getItem("employee_firstname") + " " + localStorage.getItem('employee_lastname') + " ";
+
+        let username = localStorage.getItem("employee_username");
+
+        $.ajax({
+            url: `http://localhost:3000/employees/${username}`,
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                // display attendance time
+                document.getElementById('attendancetime').innerText = "  " + data.attendace_time+ " ";
+                // display attendance status
+                document.getElementById('attendancestatus').innerText = "  " + data.attendace_state + " ";                
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        });
+
+
+
+        // user logout
+        function logout () {
+            localStorage.removeItem("emp_attendance_time");
+            localStorage.removeItem("emp_attendance_status");
+            localStorage.removeItem("employee_username");
+            localStorage.removeItem("employee_lastname");
+            localStorage.removeItem("employee_firstname");
+            window.location.replace("../login.html");
+        }   
+    </script>
+</body>
+
+</html>

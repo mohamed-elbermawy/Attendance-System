@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>admin panel</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/employee brief.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin panel.html">Attendance <span class="text-success">System</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="notification.html">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="all employees.html">All Employees</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Reports
+                    </a>
+                    <div class="dropdown-menu btn-dark" id="dropdown" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="full report.html">Full Report</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-link" href="late report.html">Late Report</a>
+                        <a class="nav-link" href="absence report.html">Absence Report</a>
+                        <a class="nav-link" href="employee brief.html">Employee Brief</a>
+                        <a class="nav-link" href="excuse report.html">Excuse Report</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="excuse.html">Excuse</a>
+                </li>
+            </ul>
+            <label for="username" class="form-label text-light mr-5"><span><i class="fa fa-user"></i></span><span id="adminname">admin</span></label>
+            <!-- <a class="btn btn-outline-success mr-5" href="login.html">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></a> -->
+            <button class="btn btn-outline-success mr-5" id="logout">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></button>
+        </div>
+    </nav>
+    <div class="container-fluid" id="mainwrapper">
+        <div class="row" id="upperwraper">
+            <div class="col-10 p-5" id="loginsection">
+                <p class="lead text-center mb-4"><span class="text-success"><i class="fa fa-user"></i></span> Employee Brief</p>
+                <div class="d-flex mb-3 ">
+                    <input class="form-control mr-2 col-4" type="text" placeholder="username" id="valuesearch" aria-label="Search">
+                    <button class="btn btn-outline-success" id="search">Search</button>
+                </div>
+                <div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">username</th>
+                                <th scope="col">password</th>
+                                <th scope="col">Attendance Times</th>
+                                <th scope="col">Absence Times</th>
+                                <th scope="col">Late Times</th>
+                                <th scope="col">Excuse Times</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 text-center" id="footer">
+                <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                    <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                    <span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/JQuery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/employee brief.js"></script>
+</body>
+
+</html>

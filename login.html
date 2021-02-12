@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>login</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Attendance <span class="text-success">System</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <a class="btn btn-outline-success mr-3" href="pages/register.html"><span><i class="fa fa-user-plus"></i> </span> Register</a>
+            <a class="btn btn-outline-success mr-5" href="login.html"><span><i class="fa fa-sign-in"></i></span> Login</a>
+        </div>
+    </nav>
+    <div class="container-fluid" id="mainwrapper">
+        <div class="row" id="upperwraper">
+            <div class="col-10 col-md-8 col-lg-4 p-5" id="loginsection">
+                <p class="lead"><span class="text-success"><i class="fa fa-sign-in"></i></span> Login Form</p>
+                <form method="@POST" id="formlogin">
+                    <div class="input-group mb-3">
+                        <span class="input-group-prepend "><i class="input-group-text fa fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="username" id="username" required>
+                    </div>
+                    <label for="username" class="form-label text-danger" id="invalidusername">invalid username</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-prepend "><i class="input-group-text fa fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="password" id="password" required>
+                    </div>
+                    <label for="username" class="form-label text-danger" id="invalidpassword">invalid password</label>
+                    <!--<a class="btn btn-primary form-control mb-3" id="login">Login</a>-->
+                    <button type="submit" class="btn btn-primary form-control mb-3" id="login">Login</button>
+                    <button type="reset" class="btn btn-danger form-control" id="cancell">Cancell</button>
+                </form>
+                <p class="mt-5 text-center">Not a member?<a href="pages/register.html">Singup Now</a></p>
+            </div>
+            <div class="col-12 text-center" id="footer">
+                <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                    <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                    <span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/JQuery-3.3.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

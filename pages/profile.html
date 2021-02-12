@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>profile</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #mainwrapper {
+            height: 555px;
+            background-image: url("../images/login-bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #upperwraper {
+            height: 100%;
+            background-color: black;
+            opacity: .7;
+        }
+        
+        #loginsection {
+            margin: 30px auto;
+            background-color: white;
+            height: 420px;
+            border-radius: 20px;
+            transition: all 1.5s ease-in-out;
+        }
+        /*#loginsection:hover{
+                box-shadow: 3px 3px 5px 5px rebeccapurple;
+                transform: scale(1.05);
+            }*/
+        
+        #invalidpassword,
+        #invalidusername {
+            display: none;
+        }
+        
+        #footer {
+            background-color: #0e0e0e;
+            color: white;
+            height: 50px;
+            margin-top: 25px;
+        }
+        
+        #footer p {
+            margin-top: 10px;
+        }
+        
+        #footer p a {
+            font-family: system-ui;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="daily report.html">Attendance <span class="text-success">System</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="daily report.html">Daily Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="monthly report.html">Monthly Report</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="profile.html">Profile  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <label for="username" class="form-label text-light mr-5"><span><i class="fa fa-user"></i></span><span id="employeename"> employee</span></label>
+            <!-- <a class="btn btn-outline-success mr-5" href="login.html">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></a> -->
+            <button class="btn btn-outline-success mr-5" id="logout">Logout <span class="text-danger"><i class="fa fa-sign-in"></i></button>
+        </div>
+    </nav>
+    <div class="container-fluid" id="mainwrapper">
+        <div class="row" id="upperwraper">
+            <div class="col-10 col-md-8 col-lg-6 p-5" id="loginsection">
+                <p class="lead text-center mb-4"><span class="text-success"><i class="fa fa-user"></i></span> Profile</p>
+                <p class="lead">
+                    <label for="username" class="form-label text-success">UserName : </label>
+                    <label for="username" class="form-label text-dark" id="employeeusername">0</label>
+                </p>
+                <p class="lead">
+                    <label for="firstname" class="form-label text-success">First Name : </label>
+                    <label for="firstname" class="form-label text-dark" id="employeefirstname">employee</label>
+                </p>
+                <p class="lead">
+                    <label for="lastname" class="form-label text-success">Last Name : </label>
+                    <label for="lastname" class="form-label text-dark" id="employeelastname"> employee </label>
+                </p>
+                <p class="lead">
+                    <label for="address" class="form-label text-success">Address : </label>
+                    <label for="address" class="form-label text-dark" id="employeeaddress"> employee </label>
+                </p>
+                <p class="lead">
+                    <label for="email" class="form-label text-success">Email : </label>
+                    <label for="email" class="form-label text-dark" id="employeeemail"> employee </label>
+                </p>
+                <p class="lead">
+                    <label for="age" class="form-label text-success">Age : </label>
+                    <label for="age" class="form-label text-dark" id="employeeage"> 0 </label>
+                </p>
+            </div>
+            <div class="col-12 text-center" id="footer">
+                <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                    <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                    <span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/JQuery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script>
+        // display first name and last name when user inter
+        document.getElementById('employeename').innerText = "  " + localStorage.getItem("employee_firstname") + " " + localStorage.getItem('employee_lastname') + " ";
+
+        // user logout
+        document.getElementById('logout').addEventListener('click', logout);
+
+        let username = localStorage.getItem("employee_username");
+
+        // get data that belong to the logined user
+        $.ajax({
+            url: `http://localhost:3000/employees/${username}`,
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                document.getElementById('employeeusername').innerText = "  " + username;
+                document.getElementById('employeefirstname').innerText = "  " + localStorage.getItem("employee_firstname");
+                document.getElementById('employeelastname').innerText = "  " + localStorage.getItem('employee_lastname');
+                document.getElementById('employeeaddress').innerText = "  " + data.address;
+                document.getElementById('employeeemail').innerText = "  " + data.email;
+                document.getElementById('employeeage').innerText = "  " + data.age;
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        });
+
+        // user logout
+        function logout () {
+            localStorage.removeItem("emp_attendance_time");
+            localStorage.removeItem("emp_attendance_status");
+            localStorage.removeItem("employee_username");
+            localStorage.removeItem("employee_lastname");
+            localStorage.removeItem("employee_firstname");
+            window.location.replace("../login.html");
+        }
+    </script>
+</body>
+
+</html>

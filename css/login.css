@@ -1,0 +1,63 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#mainwrapper {
+    background-image: url("../images/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#upperwraper {
+    height: 100%;
+    background-color: black;
+    opacity: .7;
+}
+
+#loginsection {
+    margin: 35px auto;
+    background-color: white;
+    height: 450px;
+    border-radius: 20px;
+    transition: 1.5s;
+    -webkit-transition: 1.5s;
+    -moz-transition: 1.5s;
+    -ms-transition: 1.5s;
+    -o-transition: 1.5s;
+    -webkit-border-radius: ;
+    -moz-border-radius: ;
+    -ms-border-radius: ;
+    -o-border-radius: ;
+}
+
+
+/*#loginsection:hover{
+        box-shadow: 3px 3px 5px 5px rebeccapurple;
+        transform: scale(1.05);
+        -webkit-transform:;
+        -moz-transform:;
+        -ms-transform:;
+        -o-transform:;
+}*/
+
+#invalidpassword,
+#invalidusername {
+    display: none;
+}
+
+#footer {
+    background-color: #0e0e0e;
+    color: white;
+    height: 50px;
+    margin-top: 50px;
+}
+
+#footer p {
+    margin-top: 10px;
+}
+
+#footer p a {
+    font-family: system-ui;
+    text-decoration: none;
+}

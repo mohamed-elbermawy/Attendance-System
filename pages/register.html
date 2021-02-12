@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>registration</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/register.css" rel="stylesheet" </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="">Attendance <span class="text-success">System</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <a class="btn btn-outline-success mr-3" href="register.html"><span><i class="fa fa-user-plus"></i> </span> Register</a>
+                <a class="btn btn-outline-success mr-5" href="../login.html"><span><i class="fa fa-sign-in"></i></span> Login</a>
+            </div>
+        </nav>
+        <div class="container-fluid" id="mainwrapper">
+            <div class="row" id="upperwraper">
+                <div class="col-10 col-md-8 col-lg-8 p-5" id="loginsection">
+                    <p class="lead"><span class="text-success"><i class="fa fa-user-plus"></i> </span> Registration Form</p>
+                    <form method="@POST">
+                        <div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-prepend "><i class="input-group-text fa fa-user"></i></span>
+                                                <input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname" required>
+                                            </div>
+                                            <label for="firstname" class="form-label text-danger" id="invalidfirstname">invalid firstname, at least 3 character and no numbers or special characters</label>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-prepend "><i class="input-group-text fa fa-user"></i></span>
+                                                <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname" required>
+                                            </div>
+                                            <label for="lastname" class="form-label text-danger" id="invalidlastname">invalid lastname, at least 3 character and no numbers or special characters</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-prepend "><i class="input-group-text fa fa-address-book"></i></span>
+                                                <input type="text" class="form-control" placeholder="Address" name="address" id="address" required>
+                                            </div>
+                                            <label for="address" class="form-label text-danger" id="invalidaddress">invalid address, at least 5 character and no special characters</label>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-prepend "><i class="input-group-text fa fa-envelope"></i></span>
+                                                <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+                                            </div>
+                                            <label for="email" class="form-label text-danger" id="invalidemail">invalid email must be in form like 'example@example.com'</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-prepend "><i class="input-group-text fa fa-child"></i></span>
+                                                <input type="date" class="form-control" placeholder="Age" name="age" id="age" required>
+                                            </div>
+                                            <label for="age" class="form-label text-danger" id="invalidage">invalid age</label>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary mr-5" name="register" id="register">Register</button>
+                                                <button type="reset" class="btn btn-danger mr-5" name="cancel" id="cancel">Cancel</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+
+                    <!--when sending data to mail-->
+                    <div class="alert alert-success" role="alert" id="confirmmasseage">
+                        Your information was sent to the admin please check your email for username and password
+                    </div>
+                </div>
+                <div class="col-12 text-center" id="footer">
+                    <p class="lead">Copyrights &copy; 2021 All Rights Reserved</span> mohamed elbermawy<span></a><span class="ml-2 mr-2"><a href="https://www.linkedin.com/in/mohamed-elbermawy-b99954b8/"><i class="fa fa-linkedin"></i></a></span></a><span class="mr-2"><a href="https://github.com/mohamed-elbermawy"><i class="fa fa-github"></i></a></span>
+                        <span class="mr-2"><a href="https://www.facebook.com/mohamed.elbermawy.967"><i class="fa fa-facebook"></i></a></span><span class="mr-2"><a href="https://twitter.com/mohamedbermawy7"><i class="fa fa-twitter"></i></a></span>
+                        <span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script src="../js/smtp.js"></script>
+        <script src="../js/JQuery-3.3.1.min.js"></script>
+        <script src="../js/popper.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/register.js"></script>
+    </body>
+
+</html>
